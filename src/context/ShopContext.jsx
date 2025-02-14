@@ -10,7 +10,7 @@ export const ShopContext=createContext()
 
 const ShopContextProvider=({children})=>{
     const currency='$'
-    const deliver_fee=10
+    const deliver_fee= 10
     const [search,setSearch]=useState('')
     const [showSearch,setShowSearch]=useState(false)
     const [cartItem,setCartItem]=useState({})
@@ -124,6 +124,7 @@ const ShopContextProvider=({children})=>{
             }
         }
         return totalAmount
+        
     }
    
 
@@ -134,7 +135,7 @@ const ShopContextProvider=({children})=>{
         search,setSearch,
         showSearch,setShowSearch,
         cartItem,addToCart,getCartCount,
-        updateQuantity,getCartAmount,navigate
+        updateQuantity,getCartAmount,navigate,setCartItem
     }
     return(
         <>

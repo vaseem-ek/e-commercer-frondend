@@ -19,6 +19,11 @@ export const getProductApi=async()=>{
 export const removeProductApi=async(id,header)=>{
     return await commonApi(`${Base_Url}/remove-product/${id}`,'DELETE',header,{})
 }
+export const allOrdersUserApi=async(header)=>{
+    return await commonApi(`${Base_Url}/list`,'GET',header,"")
+}
+
+// users
 export const addToCartApi=async(data,header)=>{
     return await commonApi(`${Base_Url}/add-cart`,'POST',header,data)
 
@@ -28,4 +33,10 @@ export const updateCartApi=async(data,header)=>{
 }
 export const getCartApi=async(header)=>{
     return await commonApi(`${Base_Url}/get-cart`,'GET',header,"")
+}
+export const placeOrderApi=async(data,header)=>{
+    return await commonApi(`${Base_Url}/place`,'POST',header,data)
+}
+export const userOrders=async(header)=>{
+    return await commonApi(`${Base_Url}/userorders`,'GET',header,"")
 }
