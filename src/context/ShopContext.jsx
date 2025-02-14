@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "../assets/assets";
-import { toast } from "react-toastify";
+ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { addToCartApi, getCartApi, getProductApi, updateCartApi } from "../service/allApi";
+import axios from "axios";
+import { Base_Url } from "../service/Base_url";
 
 
 export const ShopContext=createContext()
@@ -13,6 +15,24 @@ const ShopContextProvider=({children})=>{
     const [showSearch,setShowSearch]=useState(false)
     const [cartItem,setCartItem]=useState({})
     const navigate=useNavigate()
+    const [products,setProducts]=useState([])
+    const [token,setToken]=useState('')
+
+    useEffect(()=>{
+        getProduct()
+    },[])
+   useEffect(()=>{
+    if(sessionStorage.getItem('token')){
+        setToken(sessionStorage.getItem('token'))
+        getUserCart()
+    }
+   },[])
+
+
+    const getProduct = async () => {
+        const res = await getProductApi()
+        setProducts(res.data.product)
+      }
 
     const addToCart =async(itemId,size)=>{
 
@@ -33,6 +53,18 @@ const ShopContextProvider=({children})=>{
             cartData[itemId][size]=1
         }
         setCartItem(cartData)
+        if(token){
+            try {
+                const header={
+                    'Content-type':'application/json',
+                    'Authorization':`token ${sessionStorage.getItem('token')}`
+                }
+               await addToCartApi({itemId,size},header)               
+            } catch (error) {
+                console.log(error);
+                
+            }
+        }
     }
    
     const getCartCount=()=>{
@@ -52,10 +84,34 @@ const ShopContextProvider=({children})=>{
     }
 
     //here just updating values but if value =0 the item is removed and values is 1 or more item is updated
-    const updateQuantity=async(productId,size,quantity)=>{
+    const updateQuantity=async(itemId,size,quantity)=>{
         let cartData=structuredClone(cartItem)
-        cartData[productId][size]=quantity
+        cartData[itemId][size]=quantity        
         setCartItem(cartData)
+        if(token){
+            try {
+                const header={
+                    'Content-type':'application/json',
+                    'Authorization':`token ${sessionStorage.getItem('token')}`
+                }
+                await updateCartApi({itemId,size,quantity},header)
+               
+            } catch (error) {
+                console.log(error);
+                
+            }
+        }
+    }
+ 
+
+    const getUserCart=async()=>{
+        const header={
+            'Content-type':'application/json',
+            'Authorization':`token ${sessionStorage.getItem('token')}`
+        }
+        const res=await getCartApi(header)
+        setCartItem(res.data.cartData)
+        
     }
     const getCartAmount=()=>{
         let totalAmount=0

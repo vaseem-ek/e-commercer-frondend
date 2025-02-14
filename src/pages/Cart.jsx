@@ -24,8 +24,8 @@ function Cart() {
       }
     }
 
-    setCartData(tembData)
-  }, [cartItem])
+    setCartData(tembData)    
+  }, [cartItem,products])
 
   return (
     <div>

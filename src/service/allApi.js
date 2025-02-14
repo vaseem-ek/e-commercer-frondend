@@ -19,3 +19,13 @@ export const getProductApi=async()=>{
 export const removeProductApi=async(id,header)=>{
     return await commonApi(`${Base_Url}/remove-product/${id}`,'DELETE',header,{})
 }
+export const addToCartApi=async(data,header)=>{
+    return await commonApi(`${Base_Url}/add-cart`,'POST',header,data)
+
+}
+export const updateCartApi=async(data,header)=>{
+    return await commonApi(`${Base_Url}/update-cart`,'POST',header,data)
+}
+export const getCartApi=async(header)=>{
+    return await commonApi(`${Base_Url}/get-cart`,'GET',header,"")
+}
