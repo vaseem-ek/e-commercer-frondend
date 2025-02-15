@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SideBar from '../component/SideBar'
 import Navbar from '../component/Navbar'
-import { allOrdersUserApi } from '../../service/allApi'
+import { allOrdersUserApi, statusApi } from '../../service/allApi'
 import toast from 'react-hot-toast'
 
 function Order() {
@@ -24,6 +24,24 @@ function Order() {
     }
 
   }
+
+  const handleStatus=async(event,orderId)=>{
+    const data={
+      status:event,orderId
+    }
+    
+    const header={
+      'Content-type': 'application/json',
+      'Authorization': `token ${sessionStorage.getItem('token')}`
+    }
+
+    const res=await statusApi(data,header)
+    console.log(res);
+    getAllOrders()
+    
+  }
+
+  
   return (
     <div>
       <div className='bg-gray-50 min-h-screen'>
@@ -75,7 +93,7 @@ function Order() {
                           </div>
                           
                             <p className='text-sm sm:text-[15px]'>$ {order.amount}</p>
-                            <select value={order.status} className='p-2 font-semibold border'>
+                            <select onChange={(event)=>handleStatus(event.target.value,order._id)} value={order.status} className='p-2 font-semibold border'>
                               <option value="Ordered Placed">Ordered Placed</option>
                               <option value="Paking">packing</option>
                               <option value="Shipped">Shipped</option>

@@ -22,6 +22,9 @@ export const removeProductApi=async(id,header)=>{
 export const allOrdersUserApi=async(header)=>{
     return await commonApi(`${Base_Url}/list`,'GET',header,"")
 }
+export const statusApi=async(data,header)=>{
+    return await commonApi(`${Base_Url}/status`,'POST',header,data)
+}
 
 // users
 export const addToCartApi=async(data,header)=>{

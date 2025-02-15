@@ -53,24 +53,24 @@ function PlaceOrders() {
       }
 
       console.log(orderData);
-      
 
-      switch(method){
+
+      switch (method) {
         case 'cod':
-          const header={
-            'Content-type':'application/json',
-            'Authorization':`token ${sessionStorage.getItem('token')}`
+          const header = {
+            'Content-type': 'application/json',
+            'Authorization': `token ${sessionStorage.getItem('token')}`
           }
-          const res=await placeOrderApi(orderData,header)
-          if(res.data.success){
+          const res = await placeOrderApi(orderData, header)
+          if (res.data.success) {
             setCartItem({})
             navigate('/orders')
-          }else{
+          } else {
             toast.error(res.data.message)
           }
           break;
-          default:
-            break;
+        default:
+          break;
       }
 
     } catch (error) {
