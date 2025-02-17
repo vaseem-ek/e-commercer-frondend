@@ -43,3 +43,7 @@ export const placeOrderApi=async(data,header)=>{
 export const userOrders=async(header)=>{
     return await commonApi(`${Base_Url}/userorders`,'GET',header,"")
 }
+
+export const userStripeApi=async(data,header)=>{
+    return await commonApi(`${Base_Url}/stripe`,'POST',header,data)
+}

@@ -5,7 +5,7 @@ import { assets } from '../assets/assets'
 import { ShopContext } from '../context/ShopContext'
 import Navbar from '../componenets/Navbar'
 import Footer from '../componenets/Footer'
-import { placeOrderApi } from '../service/allApi'
+import { placeOrderApi, userStripeApi } from '../service/allApi'
 import toast from 'react-hot-toast'
 
 function PlaceOrders() {
@@ -68,6 +68,22 @@ function PlaceOrders() {
           } else {
             toast.error(res.data.message)
           }
+          break;
+        case 'stripe':
+          const headers = {
+            'Content-type': 'application/json',
+            'Authorization': `token ${sessionStorage.getItem('token')}`
+          }
+          const resp = await userStripeApi(orderData, headers)
+          console.log(resp);
+          if (resp.data.success) {
+            const { session_url } = resp.data._id
+            window.location.replace(session_url)
+          } else {
+            toast.error(res.data.message)
+
+          }
+
           break;
         default:
           break;
