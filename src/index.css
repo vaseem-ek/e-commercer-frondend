@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-a.active hr{
+Link ~ .active hr{
   display: block;
 }
 *{
@@ -26,7 +26,8 @@ a.active hr{
   }
 }
 .active{
-  background-color: #ffebf5;
+  background-color:rgb(255, 115, 0);
   border: #fed34f;
 }
+
 

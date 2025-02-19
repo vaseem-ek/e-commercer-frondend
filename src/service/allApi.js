@@ -25,6 +25,10 @@ export const allOrdersUserApi=async(header)=>{
 export const statusApi=async(data,header)=>{
     return await commonApi(`${Base_Url}/status`,'POST',header,data)
 }
+export const allUsersApi=async(header)=>{
+    return await commonApi(`${Base_Url}/allUsers`,'GET',header,"")
+
+}
 
 // users
 export const addToCartApi=async(data,header)=>{
@@ -46,4 +50,7 @@ export const userOrders=async(header)=>{
 
 export const userStripeApi=async(data,header)=>{
     return await commonApi(`${Base_Url}/stripe`,'POST',header,data)
+}
+export const verifyStripeApi=async(data,header)=>{
+    return await commonApi(`${Base_Url}/verify`,'POST',header,data)
 }

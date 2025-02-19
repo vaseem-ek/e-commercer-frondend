@@ -5,6 +5,7 @@ import Title from '../componenets/Title'
 import PorductItem from '../componenets/PorductItem'
 import Navbar from '../componenets/Navbar'
 import Footer from '../componenets/Footer'
+import SearchBar from '../componenets/SearchBar'
 
 function Collection() {
   const { products,search,showSearch } = useContext(ShopContext)
@@ -128,6 +129,9 @@ function Collection() {
           </select>
         </div>
         {/* map products */}
+        <div>
+          <SearchBar/>
+        </div>
         <div className='grid gri-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
           {
             filterProducts.map((item, index) => (

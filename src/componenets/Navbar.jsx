@@ -23,28 +23,29 @@ function Navbar() {
     return (
         <>
             <div className="flex items-center justify-between py-5 font-medium">
-                <Link to={'/'}> <img src={assets.logo} className='w-36' alt="" /></Link>
+                <Link to={'/'}>       <h1 className='text-red-400 font-bold italic text-2xl'>Shopee</h1>
+                </Link>
                 <ul className='hidden sm:flex gap-5 text-sm text-gray-600'>
-                    <NavLink to={'/'} className='flex flex-col items-center gap-1'>
+                    <Link to={'/'} className='flex flex-col items-center gap-1'>
                         <p>HOME</p>
                         <hr className='w-2/4 border-none h-[1.5px] bg-red-600 hidden' />
-                    </NavLink>
-                    <NavLink to={'/collection'} className='flex flex-col items-center gap-1'>
+                    </Link>
+                    <Link to={'/collection'} className='flex flex-col items-center gap-1'>
                         <p>COLLECTION</p>
                         <hr className='w-2/4 border-none h-[1.5px] bg-red-600 hidden' />
-                    </NavLink>
-                    <NavLink to={'/about'} className='flex flex-col items-center gap-1'>
+                    </Link>
+                    <Link to={'/about'} className='flex flex-col items-center gap-1'>
                         <p>ABOUT</p>
                         <hr className='w-2/4 border-none h-[1.5px] bg-red-600 hidden' />
-                    </NavLink>
-                    <NavLink to={'/contact'} className='flex flex-col items-center gap-1'>
+                    </Link>
+                    <Link to={'/contact'} className='flex flex-col items-center gap-1'>
                         <p>CONTACT</p>
                         <hr className='w-2/4 border-none h-[1.5px] bg-red-600 hidden' />
-                    </NavLink>
+                    </Link>
 
                 </ul>
                 <div className='flex items-center gap-6'>
-                    <img onClick={() => setShowSearch(true)} src={assets.search_icon} className='w-5 cursor-pointer' alt="" />
+                    {/* <img onClick={() => setShowSearch(true)} src={assets.search_icon} className='w-5 cursor-pointer' alt="" /> */}
                     <div className="group relative">
                         <Link to={'/login'}> <img src={assets.profile_icon} className='w-5 cursor-pointer' alt="" /></Link>
                             {

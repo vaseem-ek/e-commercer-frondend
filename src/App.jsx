@@ -20,6 +20,8 @@ import Dashboard from './admin/pages/Dashboard'
 import Add from './admin/pages/Add'
 import List from './admin/pages/List'
 import Order from './admin/pages/Order'
+import Verify from './pages/Verify'
+import AllUsers from './admin/pages/AllUsers'
 
 
 
@@ -29,7 +31,7 @@ function App() {
     <>
     <Toaster/>
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
-      <SearchBar/>
+      {/* <SearchBar/> */}
       <Routes>
         <Route path='/' element={<Home/>}/> 
         <Route path='/collection' element={<Collection/>}/> 
@@ -41,6 +43,7 @@ function App() {
         <Route path='/register' element={<Register/>}/> 
         <Route path='/place-order' element={<PlaceOrders/>}/> 
         <Route path='/orders' element={<Orders/>}/> 
+        <Route path='/verify' element={<Verify/>}/> 
 
       </Routes>
 
@@ -50,6 +53,7 @@ function App() {
       <Route path='/admin/add' element={<Add/>}/>
       <Route path='/admin/list' element={<List/>}/>
       <Route path='/admin/order' element={<Order/>}/>
+      <Route path='/admin/all-users' element={<AllUsers/>}/>
     </Routes>
     <ToastContainer/>
     
