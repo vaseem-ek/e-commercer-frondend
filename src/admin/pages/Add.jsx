@@ -20,6 +20,8 @@ function Add() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log(image1);
+        
         try {
             const fd = new FormData()
             fd.append('name', name)

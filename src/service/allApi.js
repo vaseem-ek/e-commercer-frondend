@@ -30,6 +30,11 @@ export const allUsersApi=async(header)=>{
 
 }
 
+export const addHeroApi=async(data,header)=>{
+    return await commonApi(`${Base_Url}/addHero`,'POST',header,data)
+} 
+
+
 // users
 export const addToCartApi=async(data,header)=>{
     return await commonApi(`${Base_Url}/add-cart`,'POST',header,data)

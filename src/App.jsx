@@ -22,6 +22,7 @@ import List from './admin/pages/List'
 import Order from './admin/pages/Order'
 import Verify from './pages/Verify'
 import AllUsers from './admin/pages/AllUsers'
+import Heros from './admin/pages/Heros'
 
 
 
@@ -54,6 +55,7 @@ function App() {
       <Route path='/admin/list' element={<List/>}/>
       <Route path='/admin/order' element={<Order/>}/>
       <Route path='/admin/all-users' element={<AllUsers/>}/>
+      <Route path='/admin/heros' element={<Heros/>}/>
     </Routes>
     <ToastContainer/>
     
