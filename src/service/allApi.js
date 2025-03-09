@@ -59,3 +59,7 @@ export const userStripeApi=async(data,header)=>{
 export const verifyStripeApi=async(data,header)=>{
     return await commonApi(`${Base_Url}/verify`,'POST',header,data)
 }
+
+export const deleteOrder=async(id,header)=>{
+    return await commonApi(`${Base_Url}/orders/${id}`,'DELETE',header,{})
+}

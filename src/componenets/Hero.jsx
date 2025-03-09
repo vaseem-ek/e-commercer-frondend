@@ -4,7 +4,7 @@ import { assets } from '../assets/assets'
 function Hero() {
     return (
         <div>
-            {/* <div className='flex flex-col sm:flex-row border border-gray-400'>
+            <div className='flex flex-col sm:flex-row border border-gray-400'>
                 <div className='w-full sm:w-1/2 flex items-center justify-center py-10 sm:pt:0'>
                     <div className='text-[#414141]'>
                         <div className="flex items-center gap-2">
@@ -20,11 +20,11 @@ function Hero() {
                 </div>
                 <img src={assets.hero_img} className='w-full sm:w-1/2' alt="" />
 
-            </div> */}
+            </div>
 
 
 
-            <div className="relative w-full h-full">
+            {/* <div className="relative w-full h-full">
                 <img
                     src="https://static.vecteezy.com/system/resources/thumbnails/036/214/523/small_2x/ai-generated-empty-supermarket-cart-on-blue-background-ready-for-shopping-generated-by-ai-free-photo.jpg"
                     className="md:w-full md:h-[400px] w-full h-1/2 rounded object-cover"
@@ -34,7 +34,7 @@ function Hero() {
                     OUR BEST SELLER
                     <span className='block text-orange-500'>it is your best choice</span>
                 </h2>
-            </div>
+            </div> */}
 
 
 

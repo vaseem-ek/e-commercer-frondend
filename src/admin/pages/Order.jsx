@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SideBar from '../component/SideBar'
 import Navbar from '../component/Navbar'
-import { allOrdersUserApi, statusApi } from '../../service/allApi'
+import { allOrdersUserApi, deleteOrder, statusApi } from '../../service/allApi'
 import toast from 'react-hot-toast'
 
 function Order() {
@@ -36,6 +36,18 @@ function Order() {
     }
 
     const res=await statusApi(data,header)
+    console.log(res);
+    getAllOrders()
+    
+  }
+
+  const deleteOrderId=async(id)=>{
+    const header={
+      'Content-type': 'application/json',
+      'Authorization': `token ${sessionStorage.getItem('token')}`
+    }
+
+    const res=await deleteOrder(id,header)
     console.log(res);
     getAllOrders()
     
@@ -100,7 +112,7 @@ function Order() {
                               <option value="Out for Delivery">Out for Delivery</option>
                               <option value="Delivered">Delivered</option>
                             </select>
-                          
+                          <button className='border px-3 py-2 bg-black text-white' onClick={()=>deleteOrderId(order._id)}>Cancel</button>
                         </div>
                       ))
                       : "no"
